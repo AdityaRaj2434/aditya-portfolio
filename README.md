@@ -1,213 +1,62 @@
 Aditya Raj — Generative AI & Autonomous Systems Portfolio
 
-«Interactive portfolio showcasing Generative AI, autonomous agents, RAG systems, computer vision, and modern web engineering.»
+An interactive, single-file portfolio demonstrating Generative AI engineering, LangChain multi-agent architectures, RAG pipelines, and classical Renaissance aesthetics.
 
-<p align="center">
-  <a href="https://adityaraj2434.github.io/aditya-portfolio/">
-    <strong>🌐 View Live Portfolio</strong>
-  </a>
-</p>---
-
-🚀 About
-
-This repository contains my personal developer portfolio, designed as an interactive experience rather than a traditional static portfolio.
-
-It combines Generative AI concepts, multi-agent architectures, RAG pipelines, 3D WebGL graphics, interactive UI components, and developer-focused tools into a single-page application.
-
-The portfolio is built to demonstrate both my technical projects and my approach to building AI-powered applications.
+Live Portfolio: "View Portfolio" (https://adityaraj2434.github.io/aditya-portfolio/)
 
 ---
 
-✨ Features
+Features
 
-🤖 AI & Agent Systems
-
-- Multi-agent architecture simulation
-- LangChain-based tool orchestration concepts
-- FAISS vector retrieval simulation
-- RAG pipeline demonstration
-- Isolated Python execution simulation
-- AI-powered portfolio assistant — AIRA
-
-🎨 Interactive Experience
-
-- Renaissance-inspired visual design
-- Interactive 3D armillary sphere
-- Three.js particle environment
-- Glassmorphism UI components
-- 3D tilt interactions
-- Animated technical matrix
-- Responsive layout
-
-🖥️ Developer Tools
-
-- Interactive terminal-style CLI
-- Portfolio system commands
-- Resume access
-- Project explorer
-- Skills and contact information
-
-🎙️ Voice AI
-
-- STT → LLM → TTS workflow demonstration
-- Autonomous tool-dispatch concept
-- Conversational agent architecture
-- Persistent persona and memory concepts
+- Renaissance Armillary & 3D Particle Background: Interactive WebGL rendering powered by Three.js.
+- Interactive Multi-Agent Sandbox: Live simulation of FAISS vector retrieval, autonomous LangChain tool dispatching, and isolated Python code execution.
+- AIRA Companion Bot: Dedicated portfolio AI assistant with natural language intent analysis and conversational fallback handling.
+- Embedded Terminal CLI: Interactive command-line interface supporting system queries ("whoami", "skills", "projects", "resume", "contact", etc.).
+- Voice AI Loop Simulation: Real-time STT → LLM reasoning → TTS loop demonstration.
+- 3D Tilt Interaction: Perspective-based hover physics applied across technical matrix cards and project showcases.
+- One-Click Verified Resume Dispatch: Instant download integration for verified credentials.
 
 ---
 
-🛠️ Technical Stack
+Technical Stack
 
-Category| Technologies
-Frontend| React 18, HTML5, CSS3
-Styling| Tailwind CSS, Glassmorphism, Custom CSS
-3D / Graphics| Three.js, WebGL
-AI / LLM| LangChain, RAG, Multi-Agent Systems
-Vector Search| FAISS
-Computer Vision| OpenCV
-LLM APIs| OpenAI, Claude, Gemini
-Fonts| Inter, Cormorant Garamond, JetBrains Mono, Shippori Mincho
-Build Approach| Single-file React application with in-browser Babel compilation
+Layer| Technologies
+Core Architecture| React 18, Babel (In-browser compilation), HTML5, CSS3
+Styling & Design| Tailwind CSS CDN, Glassmorphism, Custom Renaissance/Parchment Design Tokens
+3D Canvas & Graphics| Three.js (TorusKnot particle fields, wireframe armillary sphere)
+AI & Backend Concepts| LangChain, FAISS Vector Stores, RAG Pipelines, Multi-Agent Chains, OpenAI/Claude/Gemini APIs, OpenCV
+Icons & Typography| Google Fonts (Inter, Cormorant Garamond, JetBrains Mono, Shippori Mincho)
 
 ---
 
-📌 Featured Projects
+Featured Projects
 
 1. Fusion Forge — Agentic AI Platform
+   
+   - Modular multi-agent AI platform combining FAISS vector search for multi-format document Q&A (PDF, CSV, plain text) with sandboxed Python execution.
+   - Published as a peer-reviewed book chapter in Taylor & Francis (2025) — DOI: "10.1201/9781003675242-35".
 
-A modular AI platform combining multiple AI capabilities into a unified environment.
-
-Key capabilities:
-
-- Multi-agent AI workflows
-- FAISS-powered document retrieval
-- Multi-format document Q&A
-- PDF, CSV, and text processing
-- Sandboxed Python execution
-- Generative AI interaction
-
-Publication: Peer-reviewed book chapter, Taylor & Francis, 2025
-
-DOI: "10.1201/9781003675242-35"
-
----
-
-2. Agentic Voice AI Assistant
-
-Status: In Development
-
-A Jarvis-style autonomous voice assistant focused on natural voice interaction and intelligent tool execution.
-
-Planned capabilities:
-
-- Speech-to-text
-- LLM-based reasoning
-- Dynamic tool dispatch
-- Text-to-speech
-- Persistent agent persona
-- Cross-session conversational memory
-
----
+2. Agentic Voice AI Assistant (In Development)
+   
+   - Jarvis-style autonomous voice assistant with dynamic tool dispatch, persistent agent persona, and cross-session conversational memory.
 
 3. Fake Currency Detection System
-
-A computer vision and machine-learning system for identifying potentially counterfeit currency.
-
-Techniques include:
-
-- Image preprocessing
-- Grayscale conversion
-- Canny edge detection
-- Feature extraction
-- Geometric analysis
-- Machine-learning classification
+   
+   - End-to-end computer vision and ML pipeline using OpenCV for grayscale conversion, Canny edge detection, and geometric feature extraction.
 
 ---
 
-🏆 Achievements
+Accolades & Milestones
 
-- 🥇 1st Prize — 24-Hour Python Full-Stack Hackathon, 2023
-  
-  - Brainovision
-  - Led a 4-member team
-  - Competed against 20+ teams
-
-- 📚 Book Chapter Author — Taylor & Francis, 2025
-  
-  - Multi-Disciplinary Research and Sustainable Development
-  - DOI: "10.1201/9781003675242-35"
-
-- 🎓 B.Tech — Computer Science Engineering
-  
-  - KG Reddy College of Engineering & Technology
-  - 2021–2025
-  - CGPA: 7.15 / 10.0
-
-- 🌍 IELTS — Band 7.0
+- Book Chapter Author — Taylor & Francis (2025): Multi-Disciplinary Research and Sustainable Development (DOI: "10.1201/9781003675242-35").
+- 1st Prize Winner — 24-Hour Python Full-Stack Hackathon (2023): Brainovision (Led a 4-member team against 20+ teams).
+- B.Tech in Computer Science Engineering (2021 – 2025): KG Reddy College of Engineering & Technology, Hyderabad (CGPA: 7.15/10.0).
+- IELTS C1 (Advanced English Proficiency).
 
 ---
 
-🖥️ Interactive Terminal
+Project Structure
 
-The portfolio includes a terminal-style interface for navigating the application.
-
-Example commands:
-
-whoami
-skills
-projects
-resume
-contact
-help
-clear
-
----
-
-📂 Project Structure
-
-aditya-portfolio/
-│
-├── index.html
-├── Aditya_Raj_Resume_2026_V1.pdf
-└── README.md
-
-The portfolio is intentionally lightweight and can run as a single-page application without a traditional backend deployment.
-
----
-
-🌐 Live Demo
-
-"🚀 Open Aditya Raj's Portfolio" (https://adityaraj2434.github.io/aditya-portfolio/)
-
----
-
-👨‍💻 About Me
-
-I'm Aditya Raj, a Computer Science Engineering graduate interested in Generative AI, autonomous agents, backend development, machine learning, and AI-powered applications.
-
-I enjoy building systems that combine practical software engineering with emerging AI technologies.
-
-Current Focus
-
-- Generative AI
-- Agentic AI
-- RAG Systems
-- AI Automation
-- Backend Development
-- Machine Learning
-- Computer Vision
-
----
-
-📬 Contact
-
-For opportunities, collaborations, or technical discussions, connect with me through the contact section of my portfolio.
-
-Portfolio:
-"🌐 adityaraj2434.github.io/aditya-portfolio" (https://adityaraj2434.github.io/aditya-portfolio/)
-
----
-
-<p align="center">
-  <i>Built with curiosity, code, and a little bit of Renaissance engineering.</i>
-</p>
+├── index.html                       # Complete single-file portfolio application
+├── Aditya_Raj_Resume_2026_V1.pdf   # Verified candidate resume PDF
+└── README.md                        # Documentation and project overview
