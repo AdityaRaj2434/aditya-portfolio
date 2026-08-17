@@ -86,6 +86,13 @@
       background: rgba(0, 0, 0, 0.12);
       border-radius: 4px;
     }
+    .chat-scroll::-webkit-scrollbar {
+      width: 4px;
+    }
+    .chat-scroll::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.15);
+      border-radius: 4px;
+    }
   </style>
 </head>
 <body class="selection:bg-obsidian selection:text-white">
@@ -102,6 +109,7 @@
       { main: "BENVENUTO", origin: "ITALIAN // 05", italic: "Costruire con precisione algoritmica" }
     ];
 
+    // Neo-Renaissance 3D Celestial Armillary Sphere for the Welcome Screen
     function RenaissanceArmillary() {
       const mountRef = useRef(null);
 
@@ -158,6 +166,7 @@
       return <div ref={mountRef} className="w-52 h-52 sm:w-60 sm:h-60 mx-auto relative z-10" />;
     }
 
+    // Hero Section Three.js Background Particle Torus
     function ThreeBackground() {
       const containerRef = useRef(null);
 
@@ -224,6 +233,7 @@
       return <div ref={containerRef} className="absolute inset-0 pointer-events-none z-0" />;
     }
 
+    // 3D Card Hover Tilt Hook
     function use3DTilt() {
       const cardRef = useRef(null);
 
@@ -247,6 +257,194 @@
       };
 
       return { cardRef, handleMouseMove, handleMouseLeave };
+    }
+
+    // ================= AIRA CONVERSATIONAL AGENT COMPONENT =================
+    function AiraFloatingAssistant() {
+      const [isOpen, setIsOpen] = useState(false);
+      const [messages, setMessages] = useState([
+        {
+          sender: 'aira',
+          text: "Hi! I'm AIRA, Aditya's autonomous AI assistant. Ask me about his RAG platform, LangChain projects, research, or hiring availability!"
+        }
+      ]);
+      const [inputValue, setInputValue] = useState('');
+      const [isTyping, setIsTyping] = useState(false);
+      const messagesEndRef = useRef(null);
+
+      const scrollToBottom = () => {
+        messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+      };
+
+      useEffect(() => {
+        if (isOpen) scrollToBottom();
+      }, [messages, isOpen]);
+
+      const handleSendMessage = (queryText) => {
+        const query = queryText || inputValue;
+        if (!query.trim()) return;
+
+        const userMsg = { sender: 'user', text: query };
+        setMessages((prev) => [...prev, userMsg]);
+        if (!queryText) setInputValue('');
+        setIsTyping(true);
+
+        setTimeout(() => {
+          let reply = "I can answer specific questions about Aditya's Fusion Forge architecture, his Taylor & Francis publication, IELTS C1 score, or how to contact him directly.";
+          const q = query.toLowerCase();
+
+          if (q.includes('fusion') || q.includes('project') || q.includes('rag')) {
+            reply = "Fusion Forge is Aditya's flagship Agentic AI platform! It integrates FAISS vector search for PDF/CSV Q&A, LangChain autonomous web retrieval, and a safe sandboxed Python execution engine. It's published in Taylor & Francis (DOI: 10.1201/9781003675242-35).";
+          } else if (q.includes('voice') || q.includes('assistant') || q.includes('jarvis')) {
+            reply = "Aditya is developing an autonomous Jarvis-style Voice AI assistant using OpenAI GPT-4o, LangChain, and real-time speech synthesis with persistent multi-session memory and autonomous tool routing.";
+          } else if (q.includes('skills') || q.includes('stack') || q.includes('tech')) {
+            reply = "Aditya specializes in Python, LangChain, LangGraph, FAISS Vector RAG, OpenAI/Claude/Gemini APIs, OpenCV Computer Vision, SQL, and Streamlit.";
+          } else if (q.includes('hire') || q.includes('role') || q.includes('available')) {
+            reply = "Aditya is actively seeking entry/fresher roles as a Generative AI Engineer, Python Backend Developer, or Agentic Systems Specialist in Hyderabad or remote.";
+          } else if (q.includes('education') || q.includes('degree') || q.includes('college')) {
+            reply = "Aditya holds a B.Tech in CSE (2021–2025) from KG Reddy College of Engineering & Technology (CGPA 7.15/10) and is IELTS C1 Advanced certified.";
+          } else if (q.includes('contact') || q.includes('email') || q.includes('phone') || q.includes('reach')) {
+            reply = "You can reach Aditya directly via email at adirajad2629@gmail.com, phone at +91 9121855702, or through LinkedIn at linkedin.com/in/adityaraj2434.";
+          } else if (q.includes('hi') || q.includes('hello') || q.includes('hey')) {
+            reply = "Hello! What would you like to explore regarding Aditya's work in Generative AI and autonomous agent systems?";
+          }
+
+          setMessages((prev) => [...prev, { sender: 'aira', text: reply }]);
+          setIsTyping(false);
+        }, 700);
+      };
+
+      const quickPrompts = [
+        "What is Fusion Forge?",
+        "Why hire Aditya?",
+        "Show Tech Stack",
+        "Contact info"
+      ];
+
+      return (
+        <>
+          {/* Floating Trigger Button (Bottom Right) */}
+          <div className="fixed bottom-5 right-5 sm:bottom-8 sm:right-8 z-50">
+            {!isOpen && (
+              <button
+                onClick={() => setIsOpen(true)}
+                className="group relative flex items-center gap-3 px-5 py-3.5 bg-obsidian text-white rounded-2xl shadow-2xl hover:bg-neutral-800 transition-all duration-300 transform hover:scale-105 active:scale-95 border border-white/20"
+                aria-label="Open AIRA Assistant"
+              >
+                <div className="relative">
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 block animate-ping absolute inset-0"></span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 block relative"></span>
+                </div>
+                <div className="text-left font-mono">
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-xs font-bold tracking-wider text-amber-300">AIRA</span>
+                    <span className="text-[9px] px-1.5 py-0.2 bg-white/10 rounded uppercase">AI Assistant</span>
+                  </div>
+                  <p className="text-[10px] text-white/60">Ask about Aditya's work</p>
+                </div>
+              </button>
+            )}
+          </div>
+
+          {/* Adaptive Modal/Floating Chat Window */}
+          {isOpen && (
+            <div className="fixed inset-x-0 bottom-0 sm:inset-auto sm:bottom-8 sm:right-8 z-50 w-full sm:w-96 h-[80vh] sm:h-[500px] max-h-[600px] flex flex-col glass-card rounded-t-3xl sm:rounded-3xl border border-black/15 shadow-2xl overflow-hidden bg-parchment/95 backdrop-blur-xl">
+              
+              {/* Header */}
+              <div className="p-4 bg-obsidian text-white flex items-center justify-between border-b border-white/10 shrink-0">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-xl bg-accentViolet flex items-center justify-center font-mono font-bold text-xs shadow-inner">
+                    A
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-1.5">
+                      <h3 className="font-bold text-sm text-white">AIRA</h3>
+                      <span className="text-[9px] font-mono bg-emerald-500/20 text-emerald-400 px-1.5 py-0.5 rounded border border-emerald-500/30">
+                        Online
+                      </span>
+                    </div>
+                    <p className="text-[10px] font-mono text-white/60">Portfolio Intelligence Agent</p>
+                  </div>
+                </div>
+
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="w-7 h-7 rounded-lg bg-white/10 hover:bg-white/20 text-white flex items-center justify-center font-mono text-xs transition-colors"
+                >
+                  ✕
+                </button>
+              </div>
+
+              {/* Quick Suggestion Chips */}
+              <div className="p-2.5 bg-black/5 border-b border-black/5 flex gap-1.5 overflow-x-auto no-scrollbar shrink-0">
+                {quickPrompts.map((prompt, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => handleSendMessage(prompt)}
+                    className="px-2.5 py-1 bg-white/80 hover:bg-obsidian hover:text-white text-obsidian rounded-lg font-mono text-[10px] whitespace-nowrap border border-black/5 shadow-xs transition-colors"
+                  >
+                    {prompt}
+                  </button>
+                ))}
+              </div>
+
+              {/* Chat Message Stream */}
+              <div className="flex-1 p-4 overflow-y-auto chat-scroll space-y-3 font-sans text-xs">
+                {messages.map((msg, idx) => (
+                  <div
+                    key={idx}
+                    className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}
+                  >
+                    <div
+                      className={`max-w-[85%] p-3 rounded-2xl leading-relaxed ${
+                        msg.sender === 'user'
+                          ? 'bg-obsidian text-white rounded-br-none shadow-sm'
+                          : 'bg-white text-obsidian rounded-bl-none border border-black/5 shadow-xs font-medium'
+                      }`}
+                    >
+                      {msg.text}
+                    </div>
+                  </div>
+                ))}
+                {isTyping && (
+                  <div className="flex justify-start">
+                    <div className="p-3 bg-white rounded-2xl rounded-bl-none border border-black/5 shadow-xs flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-subtle animate-bounce"></span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-subtle animate-bounce" style={{ animationDelay: '0.2s' }}></span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-subtle animate-bounce" style={{ animationDelay: '0.4s' }}></span>
+                    </div>
+                  </div>
+                )}
+                <div ref={messagesEndRef} />
+              </div>
+
+              {/* Input Bar */}
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  handleSendMessage();
+                }}
+                className="p-3 bg-white border-t border-black/10 flex items-center gap-2 shrink-0"
+              >
+                <input
+                  type="text"
+                  value={inputValue}
+                  onChange={(e) => setInputValue(e.target.value)}
+                  placeholder="Ask AIRA about Aditya..."
+                  className="flex-1 px-3.5 py-2 bg-parchment/60 rounded-xl text-xs text-obsidian placeholder:text-subtle/60 focus:outline-none focus:ring-1 focus:ring-obsidian font-sans"
+                />
+                <button
+                  type="submit"
+                  disabled={!inputValue.trim()}
+                  className="px-3.5 py-2 bg-obsidian text-white rounded-xl text-xs font-mono font-bold hover:bg-neutral-800 disabled:opacity-40 transition-colors"
+                >
+                  Send ➔
+                </button>
+              </form>
+            </div>
+          )}
+        </>
+      );
     }
 
     function Portfolio() {
@@ -1023,6 +1221,10 @@
             </section>
 
           </main>
+
+          {/* ================= FLOATING AIRA COMPANION WIDGET ================= */}
+          <AiraFloatingAssistant />
+
         </div>
       );
     }
